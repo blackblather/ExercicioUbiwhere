@@ -15,8 +15,8 @@ class Ocorrencias(models.Model):
     descricao = models.CharField(max_length=256)
     lat = models.FloatField()
     lon = models.FloatField()
-    data_criacao = models.DateField()
-    data_atualizacao = models.DateField()
+    data_criacao = models.DateField(auto_now_add=True)
+    data_atualizacao = models.DateField(null=True)
 
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     estado = models.ForeignKey('Estados', on_delete=models.CASCADE, default=1)
