@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from .models import Ocorrencias
+from .serializers import OcorrenciasSerializer
+from rest_framework import generics
 
-# Create your views here.
+
+class OcorrenciasListCreate(generics.ListCreateAPIView):
+    queryset = Ocorrencias.objects.all()
+    serializer_class = OcorrenciasSerializer
