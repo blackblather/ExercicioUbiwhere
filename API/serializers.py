@@ -3,11 +3,8 @@ from .models import Ocorrencias
 
 
 class OcorrenciasSerializer(serializers.ModelSerializer):
-    autor = serializers.ReadOnlyField(source="autor.username")
-    estado = serializers.ReadOnlyField(source="estado.estado")
-    categoria = serializers.ReadOnlyField(source="categoria.categoria")
     data_criacao = serializers.DateField()
-    data_atualizacao = serializers.DateField()
+    data_atualizacao = serializers.DateField(required=False)
 
     class Meta:
         model = Ocorrencias
