@@ -19,5 +19,5 @@ class Ocorrencias(models.Model):
     data_atualizacao = models.DateField()
 
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    estado = models.ForeignKey('Estados', on_delete=models.CASCADE)
+    estado = models.ForeignKey('Estados', on_delete=models.CASCADE, default=1)
     categoria = models.ForeignKey('Categorias', on_delete=models.CASCADE)
