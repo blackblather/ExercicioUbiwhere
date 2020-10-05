@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, get_list_or_404
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 
@@ -10,6 +10,18 @@ from .models import Ocorrencias
 class OcorrenciasListCreate(generics.ListCreateAPIView):
     queryset = Ocorrencias.objects.all()
     serializer_class = OcorrenciasSerializer
+
+    def list(self, request, *args, **kwargs):
+        if len(kwargs) == 1:
+            if "autor" in kwargs:
+                ocorrencias = get_list_or_404(self.queryset, autor=kwargs["autor"])
+            else:
+                ocorrencias = get_list_or_404(self.queryset, categoria=kwargs["categoria"])
+        else:
+            ocorrencias = get_list_or_404(self.queryset, autor=kwargs["autor"], categoria=kwargs["categoria"])
+
+        serializer = self.serializer_class(ocorrencias, many=True)
+        return Response(serializer.data)
 
 
 class OcorrenciasUpdate(generics.UpdateAPIView):
@@ -32,4 +44,4 @@ class OcorrenciasUpdate(generics.UpdateAPIView):
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except ValueError as error:
-            return Response(error.__str__(), status=status.HTTP_400_BAD_REQUEST)
+            return Response(str(error), status=status.HTTP_400_BAD_REQUEST)
