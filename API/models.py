@@ -5,10 +5,15 @@ from django.contrib.auth.models import User
 class Estados(models.Model):
     estado = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.estado.__str__()
 
 class Categorias(models.Model):
     categoria = models.CharField(max_length=256)
     descricao = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.descricao.__str__()
 
 
 class Ocorrencias(models.Model):
