@@ -38,7 +38,29 @@ Para criar uma conta de administrador do Django, deve ser usado o seguinte coman
 ## Postman Collection:
 O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd)
 
-Para executar o *endpoint* `Validate ocorrencia`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `Get admin authentication token`. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `Validate ocorrencia` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o seguinte formato: `Token <token_obtido_previamente>`)
+## Endpoints:
+ - `/` [Método: GET]:
+	 - **Descrição:** Listagem de todas as ocorrências
+ - `/` [Método: POST]:
+	 - **Descrição:** Criação de uma nova ocorrência
+	 - ***Request body*:** Objeto *JSON* com representação do modelo `API.models.Ocorrencia`
+ - `/autor/<int:autor>/`:
+	 - **Descrição:** Pesquisa por autor
+ - `/categoria/<int:categoria>/`:
+	 - **Descrição:** Pesquisa por categoria
+ - `/autor/<int:autor>/categoria/<int:categoria>/`:
+	 - **Descrição:** Pesquisa por autor e categoria
+ - `/validate-ocorrencia/`:
+	 - **Descrição:** Valida uma ocorrência
+	 - ***Request header*:** `Authorization: Token <token_de_autenticação>`
+	 - ***Request body*:** Objeto *JSON* com `id` da ocorrência a validar
+ - `/api-token-auth/`:
+	 - **Descrição:** Obtém *token* de autenticação
+	 - ***Request header*:** `Content-Type: application/json`
+	 - ***Request body*:** Objeto *JSON* com `username` e `password` do administrador
+
+**Nota:** Para executar o *endpoint* `Validate ocorrencia`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `Get admin authentication token`. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `Validate ocorrencia` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o seguinte formato: `Token <token_de_autenticação>`)
+
 ## Utilização:
 
  1. Iniciar servidor (**Ver** Instalação)
