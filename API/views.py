@@ -17,8 +17,10 @@ class OcorrenciasListCreate(generics.ListCreateAPIView):
                 ocorrencias = get_list_or_404(self.queryset, autor=kwargs["autor"])
             else:
                 ocorrencias = get_list_or_404(self.queryset, categoria=kwargs["categoria"])
-        else:
+        elif len(kwargs) == 2:
             ocorrencias = get_list_or_404(self.queryset, autor=kwargs["autor"], categoria=kwargs["categoria"])
+        else:
+            ocorrencias = self.queryset.all()
 
         serializer = self.serializer_class(ocorrencias, many=True)
         return Response(serializer.data)
