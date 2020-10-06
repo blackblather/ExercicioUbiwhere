@@ -31,9 +31,9 @@ Para criar uma conta de administrador do Django, deve ser usado o seguinte coman
     python manage.py createsuperuser
  
 ## Postman Collection:
-Para executar o *endpoint* `Validate ocorrencia`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `Get admin authentication token`. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `Validate ocorrencia` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o seguinte formato: `Token <token_obtido_previamente>`)
-
 O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd)
+
+Para executar o *endpoint* `Validate ocorrencia`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `Get admin authentication token`. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `Validate ocorrencia` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o seguinte formato: `Token <token_obtido_previamente>`)
 ## Utilização:
 
  1. Iniciar servidor (**Ver** Instalação)
