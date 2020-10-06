@@ -24,17 +24,23 @@
  7. `python manage.py runserver`
 
 ## Base de Dados:
+Para popular a base de dados com os valores iniciais, deve-se abrir a plataforma pgAdmin 4 e seleccionar a base de dados `DBExercicioUbiwhere`. De seguida deve-se abrir o menu de contexto das tabelas `API_estados` e `API_categorias` e selecionar a opção `Import/Export...` e selecionar os ficheiros `estados_dump_file.txt` e `categorias_dump_file.txt` para cada uma das tabelas respetivamente. (**Ver:** Limitações encontradas)
+
 Para criar uma conta de administrador do Django, deve ser usado o seguinte comando:
 
     python manage.py createsuperuser
-
-Para popular a base de dados com os valores iniciais das tabelas `API_estados` e `API_categorias`, devem ser usados os *endpoints* disponíveis na [*postman collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd):
- - Populate Estados
- - Populate Categorias
  
 ## Postman Collection:
+Para executar o *endpoint* `Validate ocorrencia`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `Get admin authentication token`. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `Validate ocorrencia` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o seguinte formato: `Token <token_obtido_previamente>`)
 
-[Obter *Postman Collection* dos *endpoints* criados](https://www.getpostman.com/collections/43751fceec1448c44dfd)
+O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd)
+## Utilização:
+
+ 1. Iniciar servidor (**Ver** Instalação)
+ 2. Importar [*postman collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd)
+ 3. Popular base de dados (**Ver:** Base de dados)
+ 4. Criar conta de administrador (**Ver:** Base de dados)
+ 5. Fazer chamadas aos *endpoints* da API
 
 ---
 **Limitações encontradas:**
@@ -42,6 +48,11 @@ Quando se corre o comando `docker-compose up -d --build` pela primeira vez, pode
 Por isso é recomendado, **apenas na primeira vez**, que o comando `docker-compose up -d --build` seja executado até ao fim, de seguida terminar a execução de todos os *containers* com `docker-compose down`, e por fim (e nas futuras execuções) voltar a iniciá-los com `docker-compose up -d`.
 
 **Nota:** Mesmo usando a definição `depends: db` no serviço `web`, o problema parece persistir. É também comum a utilização de um *script* `wait-for-it.sh`, mas não foi possível testar no tempo previsto.
+
+Para popular a base de dados foi tentado utilizar a funcionalidade de *fixtures* do Django, mas sem sucesso.
+Foi também tido em consideração a possibilidade de criar *endpoints* na API dedicados a esse fim, mas iria poluir o código desnecessariamente.
+Não tendo mais tempo para explorar outras possíveis soluções, foi escolhida a opção de exportar o conteúdo das tabelas `API_estados` e `API_categorias` a partir do pgAdmin 4.
+
 
 ---
  **Referências docker:**
