@@ -7,10 +7,10 @@
 > - WEATHER_CONDITION: eventos meteorológicos que afetam as estradas;
 > - ROAD_CONDITION: estados das estradas que afetem quem circula nestas (piso degradado, buracos, etc).
 >
-> 1) API REST
-> 1.1) Tem de permitir a adição de ocorrências (com a localização geográfica, e autor associados). Nota: O estado default será sempre por validar quando estas são criadas e o autor deve ser um utilizador registado;
-> 1.2) Tem de permitir a actualização de ocorrências (para mudar o estado das mesmas para "validadas" por um administrador do sistema);
-> 1.3) Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance).
+>1) API REST
+>1.1) Tem de permitir a adição de ocorrências (com a localização geográfica, e autor associados). Nota: O estado default será sempre por validar quando estas são criadas e o autor deve ser um utilizador registado;
+>1.2) Tem de permitir a actualização de ocorrências (para mudar o estado das mesmas para "validadas" por um administrador do sistema);
+>1.3) Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance).
 
 ## Instalação:
 **Método #1: Docker:**
@@ -52,7 +52,7 @@ Para executar o *endpoint* `Validate ocorrencia`, é necessário antes obter um 
 Quando se corre o comando `docker-compose up -d --build` pela primeira vez, pode acontecer que o *container* do serviço `db` seja executado antes do *container* do serviço `web`, causando problemas.
 Por isso é recomendado, **apenas na primeira vez**, que o comando `docker-compose up -d --build` seja executado até ao fim, de seguida terminar a execução de todos os *containers* com `docker-compose down`, e por fim (e nas futuras execuções) voltar a iniciá-los com `docker-compose up -d`.
 
-**Nota:** Mesmo usando a definição `depends: db` no serviço `web`, o problema parece persistir. É também comum a utilização de um *script* `wait-for-it.sh`, mas não foi possível testar no tempo previsto.
+**Nota:** Mesmo usando a definição `depends: db` no serviço `web`, o problema parece persistir. É também comum a utilização de um *script* `wait-for-it.sh`, mas não foi possível testar no tempo previsto (**Ver:** Referências).
 
 Para popular a base de dados foi tentado utilizar a funcionalidade de *fixtures* do Django, mas sem sucesso.
 Foi também tido em consideração a possibilidade de criar *endpoints* na API dedicados a esse fim, mas iria poluir o código desnecessariamente.
