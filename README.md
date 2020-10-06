@@ -6,6 +6,11 @@
 > - INCIDENT: acidentes ou outros eventos inesperados;
 > - WEATHER_CONDITION: eventos meteorológicos que afetam as estradas;
 > - ROAD_CONDITION: estados das estradas que afetem quem circula nestas (piso degradado, buracos, etc).
+>
+> 1) API REST
+> 1.1) Tem de permitir a adição de ocorrências (com a localização geográfica, e autor associados). Nota: O estado default será sempre por validar quando estas são criadas e o autor deve ser um utilizador registado;
+> 1.2) Tem de permitir a actualização de ocorrências (para mudar o estado das mesmas para "validadas" por um administrador do sistema);
+> 1.3) Tem de permitir a filtragem de ocorrências por autor, por categoria e por localização (raio de alcance).
 
 ## Instalação:
 **Método #1: Docker:**
