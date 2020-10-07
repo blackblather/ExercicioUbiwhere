@@ -20,7 +20,10 @@
  5. `python manage.py createsuperuser`
  
 ## Postman Collection:
-O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.getpostman.com/collections/ff952b459bce866c83ec)
+O *Postman Collection* pode ser obtido em:
+- [*Published Postman Collection*](https://documenter.getpostman.com/view/12976501/TVRhdAHs)
+- [*RAW Postman Collection*](https://www.getpostman.com/collections/2b167bf525867bb0b5df)
+
 
 ## Endpoints:
  - `{HOST}/API/` [Método: GET]:
@@ -48,7 +51,7 @@ O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.ge
 ## Utilização:
 
  1. Iniciar servidor
- 2. Importar [*postman collection*](https://www.getpostman.com/collections/ff952b459bce866c83ec)
+ 2. Consultar [*Published Postman Collection*](https://documenter.getpostman.com/view/12976501/TVRhdAHs), ou importar [*RAW postman collection*](https://www.getpostman.com/collections/2b167bf525867bb0b5df)
  4. Fazer chamadas aos *endpoints* da API
 
 ---
