@@ -46,7 +46,7 @@ O *Postman Collection* pode ser obtido em:
 	 - ***Request header*:** `Content-Type: application/json`
 	 - ***Request body*:** Objeto *JSON* com `username` e `password` do administrador
 
-**Nota:** Para executar o *endpoint* `{HOST}/API/validate-ocorrencia/`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `{HOST}/API/api-token-auth/` e fornecendo um `username` e `password`. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `{HOST}/API/validate-ocorrencia/` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o formato: `Token <token_de_autenticação>`)
+**Nota:** Para executar o *endpoint* `{HOST}/API/validate-ocorrencia/`, é necessário antes obter um *token* de autenticação fazendo uma chamada ao *endpoint* `{HOST}/API/api-token-auth/` e fornecendo um `username` e `password` de um utilizador registado. Após obtido o *token*, este deve ser colocado no *Header* `Authorization` do *endpoint* `{HOST}/API/validate-ocorrencia/` (**Importante:** o conteúdo do *Header* `Authorization` deve manter o formato: `Token <token_de_autenticação>`)
 
 ## Utilização:
 
