@@ -20,25 +20,25 @@
  5. `python manage.py createsuperuser`
  
 ## Postman Collection:
-O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd)
+O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.getpostman.com/collections/ff952b459bce866c83ec)
 
 ## Endpoints:
- - `/` [Método: GET]:
+ - `{HOST}/API/` [Método: GET]:
 	 - **Descrição:** Listagem de todas as ocorrências
- - `/` [Método: POST]:
+ - `{HOST}/API/` [Método: POST]:
 	 - **Descrição:** Criação de uma nova ocorrência
 	 - ***Request body*:** Objeto *JSON* com representação do modelo `API.models.Ocorrencia`
- - `/autor/<int:autor>/`:
+ - `{HOST}/API/autor/<int:autor>/`:
 	 - **Descrição:** Pesquisa por autor
- - `/categoria/<int:categoria>/`:
+ - `{HOST}/API/categoria/<int:categoria>/`:
 	 - **Descrição:** Pesquisa por categoria
- - `/autor/<int:autor>/categoria/<int:categoria>/`:
+ - `{HOST}/API/autor/<int:autor>/categoria/<int:categoria>/`:
 	 - **Descrição:** Pesquisa por autor e categoria
- - `/validate-ocorrencia/`:
+ - `{HOST}/API/validate-ocorrencia/`:
 	 - **Descrição:** Validação de uma ocorrência
 	 - ***Request header*:** `Authorization: Token <token_de_autenticação>`
 	 - ***Request body*:** Objeto *JSON* com `id` da ocorrência a validar
- - `/api-token-auth/`:
+ - `{HOST}/API/api-token-auth/`:
 	 - **Descrição:** Obtém *token* de autenticação
 	 - ***Request header*:** `Content-Type: application/json`
 	 - ***Request body*:** Objeto *JSON* com `username` e `password` do administrador
@@ -48,7 +48,7 @@ O *Postman Collection* pode ser obtido em: [*Postman Collection*](https://www.ge
 ## Utilização:
 
  1. Iniciar servidor
- 2. Importar [*postman collection*](https://www.getpostman.com/collections/43751fceec1448c44dfd)
+ 2. Importar [*postman collection*](https://www.getpostman.com/collections/ff952b459bce866c83ec)
  4. Fazer chamadas aos *endpoints* da API
 
 ---
